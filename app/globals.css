@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Paleta */
+:root{
+  --cream: #FAF4E6;
+  --ice: #DEE7EE;
+  --sand: #CEAFAA;
+  --cocoa: #6C4D38;
+  --espresso: #402E22;
+
+  /* Roles que usa tu page.tsx */
+  --bg: var(--cream);
+  --text: var(--espresso);
+  --text2: var(--cocoa);
+  --muted: var(--ice);
+  --accent: var(--sand);
+
+  --border: rgba(64, 46, 34, 0.25);
+
+  --shadow: 0 10px 30px rgba(64, 46, 34, 0.18);
+  --shadow-soft: 0 6px 18px rgba(64, 46, 34, 0.12);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Base */
+html, body{
+  background: var(--bg);
+  color: var(--text);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Sacar subrayado a links (porque muchos botones son <a> o <Link>) */
+a{ text-decoration: none; }
+a:hover{ text-decoration: none; }
+
+/* Botones principales */
+button.btn-primary,
+a.btn-primary{
+  background-color: var(--sand) !important;
+  color: var(--espresso) !important;
+  border-radius: 9999px !important;
+  padding: 10px 16px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  border: 1px solid transparent !important;
+  cursor: pointer !important;
+  transition: background-color 200ms ease, transform 150ms ease !important;
+  text-decoration: none !important;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+button.btn-primary:hover,
+a.btn-primary:hover{
+  background-color: var(--ice) !important;
+  text-decoration: none !important;
+}
+
+button.btn-primary:active,
+a.btn-primary:active{
+  transform: scale(0.98) !important;
+}
+
+/* Hover para filas / opciones */
+.hover-selectable:hover{
+  background-color: var(--ice) !important;
 }
